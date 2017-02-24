@@ -30,6 +30,35 @@ function geoFindMe() {
   navigator.geolocation.getCurrentPosition(success, error);
 }
 
+function getTypedWeather(){
+    
+    var city = $('#cityText').val();
+    var state = $('#stateText').val();
+    var loc1 = city+", "+state;
+    var u = 'f';
+
+    var query1 = "SELECT * FROM weather.forecast WHERE woeid in (select woeid from geo.places(1) where text='" + loc1 + "') AND u='" + u + "'";
+    var cacheBuster = Math.floor((new Date().getTime()) / 3600 / 1000);
+
+    var url1 = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent(query1) + '&format=json&_nocache=' + cacheBuster;
+
+    window['doWeather'] = function(data) {
+        var info = data.query.results.channel;
+        $('#conditionTd').html(info.item.condition.text);
+        $('#currentTemp').html(info.item.forecast[0].low + (u.toUpperCase()) + ' - ' + info.item.forecast[0].high + (u.toUpperCase()));
+        $('#humidityTd').html(" "+info.atmosphere.humidity );
+
+    };
+    $.ajax({
+        url: url1,
+        dataType: 'jsonp',
+        cache: true,
+        jsonpCallback: 'doWeather'
+    });
+
+    
+}
+
 function getWeather() {
 
 //CODE Using location attempts
@@ -44,20 +73,22 @@ function getWeather() {
 //    });
     
 //    var query2 = "SELECT * FROM weather.forecast WHERE woeid in (select woeid from geo.places(1) where text='"({lat},{lon})"') AND u='" + u + "'";
-
+    
 //    var loc1 = 'Chicago, IL';
 //    
 //    var query1 = "SELECT * FROM weather.forecast WHERE woeid in (SELECT woeid FROM geo.places(1) where text='" + loc1 + "') AND u='" + u + "'";
-//    
+// 
+
+   
     
-     var u = 'F';
+    var u = 'F';
     var query = "SELECT * FROM weather.forecast WHERE woeid in (SELECT woeid FROM geo.places(1) WHERE text=\"(" + latitude + ","+ longitude+ ")\")";
     
     var cacheBuster = Math.floor((new Date().getTime()) / 3600 / 1000);
 
     var url1 = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent(query) + '&format=json&_nocache=' + cacheBuster;
 
-    window['wxCallback1'] = function(data) {
+    window['doWeather'] = function(data) {
         var info = data.query.results.channel;
         $('#conditionTd').html(info.item.condition.text);
         $('#currentTemp').html(info.item.forecast[0].low + (u.toUpperCase()) + ' - ' + info.item.forecast[0].high + (u.toUpperCase()));
@@ -68,8 +99,6 @@ function getWeather() {
         url: url1,
         dataType: 'jsonp',
         cache: true,
-        jsonpCallback: 'wxCallback1'
+        jsonpCallback: 'doWeather'
     });
 }
-
-window.onload = alert("page loaded");

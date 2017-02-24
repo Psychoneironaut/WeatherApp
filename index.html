@@ -10,29 +10,33 @@
     <p>
         <button onclick="geoFindMe()">Show my location</button>
     </p>
-    <p class="weather">
-        <button onclick="getWeather()">Show weather</button>
-    </p>
+    <form> 
+        City:
+        <br>
+            <input type="text" id="cityText">
+        <br> 
+        State/Country:
+        <br>
+            <input type="text" id="stateText"> </form>
+        <br>
+    
+    
+        <button onclick="getTypedWeather()">Get Typed weather</button>
+    
+        <button onclick="getWeather()">Show geo weather</button>
+        
     <div id="out"></div>
     <table>
-      <tr>
-        <td>
-          <span id="conditionTd"></span>
-        </td>
-        <td>
-          Temp: 
-            <span id="currentTemp"></span>
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          Humidity: 
-            <span id="humidityTd"></span>
-        </td>
-      </tr>
+        <tr>
+            <td> <span id="conditionTd"></span> </td>
+            <td> Temp: <span id="currentTemp"></span> </td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td> Humidity: <span id="humidityTd"></span> </td>
+        </tr>
     </table>
     <script src="jquery-3.1.1.js" type="text/javascript"></script>
     <script src="script.js" type="text/javascript"></script>
