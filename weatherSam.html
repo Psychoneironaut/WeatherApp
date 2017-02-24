@@ -1,0 +1,84 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather</title>
+
+</head>
+<body>
+    <div class="content">
+        <h2>Weather Forcast</h2>
+        <div><p id="currentTemp"></p></div>
+        <div><p id="todayHigh"></p></div>
+        <div><p  id="humidity"></p></div>
+    
+    
+    </div>
+    <script type="text/javascript" src="weather.js"></script>
+</body>
+</html>-->
+<!doctype html>
+<html lang="en">
+<HEAD>
+    <title>Weather</title>
+</HEAD>
+
+<body margin=0,auto style="BACKGROUND-COLOR:transparent">
+
+<table cellpadding="1" cellspacing="1" border="0" width="194">
+      <tr>
+        <td rowspan="3" valign="middle" align="center" width="50%">
+          <span id="conditionTd"></span>
+        </td>
+        <td valign="middle" align="center">
+          Temp
+            <span id="wxTemp1"></span>
+        </td>
+      </tr>
+      <tr>
+        <td height="1" bgcolor="#999999"></td>
+      </tr>
+      <tr>
+        <td valign="top" align="center">
+          HUMIDITY
+            <span id="humidityTd"></span>
+        </td>
+      </tr>
+      </table>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+
+    var loc1 = 'Chicago, IL';
+    var u = 'c';
+    var query1 = "SELECT * FROM weather.forecast WHERE woeid in (select woeid from geo.places(1) where text='" + loc1 + "') AND u='" + u + "'";
+    
+//    var query2 = "SELECT * FROM weather.forecast WHERE woeid in (select woeid from geo.places(1) where text='"({lat},{lon})"') AND u='" + u + "'";
+    
+    var cacheBuster = Math.floor((new Date().getTime()) / 3600 / 1000);
+
+    var url1 = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent(query1) + '&format=json&_nocache=' + cacheBuster;
+
+    window['wxCallback1'] = function(data) {
+        var info = data.query.results.channel;
+        $('#conditionTd').append(info.item.condition.text);
+        $('#wxTemp1').html(info.item.forecast[0].low + '<font style="FONT-WEIGHT:normal; FONT-SIZE:12px">&deg;' + (u.toUpperCase()) + '</font>' + ' - ' + info.item.forecast[0].high + '<font style="FONT-WEIGHT:normal; FONT-SIZE:12px">&deg;' + (u.toUpperCase()) + '</font>');
+        $('#humidityTd').html(" "+info.atmosphere.humidity );
+
+    };
+    $.ajax({
+        url: url1,
+        dataType: 'jsonp',
+        cache: true,
+        jsonpCallback: 'wxCallback1'
+    });
+
+});
+
+</script>
+</body>
+</HTML>
