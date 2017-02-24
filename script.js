@@ -13,12 +13,15 @@ function geoFindMe() {
     function success(position) {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
+        getWeather();
     }
 
     function error() {
         output.innerHTML = "Unable to retrieve your location";
     }
     navigator.geolocation.getCurrentPosition(success, error);
+    
+    
 }
 
 function getTypedWeather(){
@@ -72,10 +75,8 @@ function getWeather() {
         cache: true,
         jsonpCallback: 'doWeather'
     });
-<<<<<<< HEAD
 }
 
 window.onload = geoFindMe();
-=======
-}
->>>>>>> c8ac28b2b9921326213498ef1a2aae5efac839ca
+
+
