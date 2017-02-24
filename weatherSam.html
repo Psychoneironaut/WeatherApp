@@ -49,35 +49,35 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 
-<script type="text/javascript">
+<script type="text/javascript" src=weatherSam.js>
 
-$(function(){
-
-    var loc1 = 'Chicago, IL';
-    var u = 'c';
-    var query1 = "SELECT * FROM weather.forecast WHERE woeid in (select woeid from geo.places(1) where text='" + loc1 + "') AND u='" + u + "'";
-    
-//    var query2 = "SELECT * FROM weather.forecast WHERE woeid in (select woeid from geo.places(1) where text='"({lat},{lon})"') AND u='" + u + "'";
-    
-    var cacheBuster = Math.floor((new Date().getTime()) / 3600 / 1000);
-
-    var url1 = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent(query1) + '&format=json&_nocache=' + cacheBuster;
-
-    window['wxCallback1'] = function(data) {
-        var info = data.query.results.channel;
-        $('#conditionTd').append(info.item.condition.text);
-        $('#wxTemp1').html(info.item.forecast[0].low + '<font style="FONT-WEIGHT:normal; FONT-SIZE:12px">&deg;' + (u.toUpperCase()) + '</font>' + ' - ' + info.item.forecast[0].high + '<font style="FONT-WEIGHT:normal; FONT-SIZE:12px">&deg;' + (u.toUpperCase()) + '</font>');
-        $('#humidityTd').html(" "+info.atmosphere.humidity );
-
-    };
-    $.ajax({
-        url: url1,
-        dataType: 'jsonp',
-        cache: true,
-        jsonpCallback: 'wxCallback1'
-    });
-
-});
+//$(function(){
+//
+//    var loc1 = 'Chicago, IL';
+//    var u = 'c';
+//    var query1 = "SELECT * FROM weather.forecast WHERE woeid in (select woeid from geo.places(1) where text='" + loc1 + "') AND u='" + u + "'";
+//    
+////    var query2 = "SELECT * FROM weather.forecast WHERE woeid in (select woeid from geo.places(1) where text='"({lat},{lon})"') AND u='" + u + "'";
+//    
+//    var cacheBuster = Math.floor((new Date().getTime()) / 3600 / 1000);
+//
+//    var url1 = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent(query1) + '&format=json&_nocache=' + cacheBuster;
+//
+//    window['wxCallback1'] = function(data) {
+//        var info = data.query.results.channel;
+//        $('#conditionTd').append(info.item.condition.text);
+//        $('#wxTemp1').html(info.item.forecast[0].low + '<font style="FONT-WEIGHT:normal; FONT-SIZE:12px">&deg;' + (u.toUpperCase()) + '</font>' + ' - ' + info.item.forecast[0].high + '<font style="FONT-WEIGHT:normal; FONT-SIZE:12px">&deg;' + (u.toUpperCase()) + '</font>');
+//        $('#humidityTd').html(" "+info.atmosphere.humidity );
+//
+//    };
+//    $.ajax({
+//        url: url1,
+//        dataType: 'jsonp',
+//        cache: true,
+//        jsonpCallback: 'wxCallback1'
+//    });
+//
+//});
 
 </script>
 </body>
