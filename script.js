@@ -60,27 +60,7 @@ function getTypedWeather(){
 }
 
 function getWeather() {
-
-//CODE Using location attempts
-//
-//     var query1 = "https://query.yahooapis.com/v1/public/yql?q=SELECT * FROM weather.forecast WHERE woeid in (select woeid from geo.places(1) where text='" +latitude+","+longitude+ "') AND u='" + u + "'";
-//    
-//    
-//    
-//    
-//    jQuery.getJSON(query1).then(function(result) {
-//        jQuery("weather").eq(0).append(result.query.results.channel.item.forecast[0].text);                         
-//    });
-    
-//    var query2 = "SELECT * FROM weather.forecast WHERE woeid in (select woeid from geo.places(1) where text='"({lat},{lon})"') AND u='" + u + "'";
-    
-//    var loc1 = 'Chicago, IL';
-//    
-//    var query1 = "SELECT * FROM weather.forecast WHERE woeid in (SELECT woeid FROM geo.places(1) where text='" + loc1 + "') AND u='" + u + "'";
-// 
-
-   
-    
+ 
     var u = 'F';
     var query = "SELECT * FROM weather.forecast WHERE woeid in (SELECT woeid FROM geo.places(1) WHERE text=\"(" + latitude + ","+ longitude+ ")\")";
     
