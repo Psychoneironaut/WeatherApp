@@ -7,19 +7,21 @@
 </head>
 
 <body>
-    <p></p>
-    <p class="weather">
-        <button onclick="getWeather()">Show my weather</button>
-    </p>
-    <div id="out"></div>
+
     <table>
         <tr>
-            <td> <span id="conditionTd"></span> </td>
+            <td> Condition: <span id="conditionTd"></span> </td>
+            
+        </tr>
+        <br>
+        <tr>
             <td> Temp: <span id="currentTemp"></span> </td>
         </tr>
         <tr>
             <td> Humidity: <span id="humidityTd"></span> </td>
         </tr>
+        <br>
+    </table>
         
         <form> 
             City:
@@ -28,10 +30,38 @@
             <br> 
             State/Country:
             <br>
-            <input type="text" id="stateText"> </form>
+            <input type="text" id="stateText"> 
+        </form>
         <br>
         
         <button onclick="getTypedWeather()">Get Typed weather</button>
+        <br>
+        <button onclick="getWeather()">Show my weather</button>
+        
+    <table>
+        <tr>
+            <td>Future Forcast</td>
+        </tr>
+        <tr>
+            <td>Day: <span id="nextDay"></span> -- <span id="nextDate"></span></td>
+        </tr>
+        <br>
+        <tr>
+            <td> Condition: <span id="nextCondition"></span> </td>
+            
+        </tr>
+        <br>
+        <tr>
+            <td> Temp: <span id="nextTemp"></span> </td>
+        </tr>
+
+        <tr>
+            <td><button onclick="previousDay()">Previous Day</button><button onclick="nextDay()">Next Day</button></td>
+        </tr>
+        <br>
+    </table>
+        
+        
         <div id="out"></div>
         
         
