@@ -50,21 +50,21 @@ section {
   background-color: grey;
   opacity: .5;
   padding: 5px;
-  width: 200px;
-  height: 200px;
-  margin-top: 2em; }
+  width: 300px;
+  font-size: 20px;
+  font-family: monospace; }
 
-/* line 59, C:/Users/Will/Documents/GitHub/WeatherApp/css/styles.scss */
+/* line 57, C:/Users/Will/Documents/GitHub/WeatherApp/css/styles.scss */
 footer {
   font-family: monospace;
   background: black; }
 
-/* line 64, C:/Users/Will/Documents/GitHub/WeatherApp/css/styles.scss */
+/* line 62, C:/Users/Will/Documents/GitHub/WeatherApp/css/styles.scss */
 a {
   color: greenyellow;
   text-decoration: none; }
 
-/* line 69, C:/Users/Will/Documents/GitHub/WeatherApp/css/styles.scss */
+/* line 67, C:/Users/Will/Documents/GitHub/WeatherApp/css/styles.scss */
 #footerItemRight {
   float: right; }
 
