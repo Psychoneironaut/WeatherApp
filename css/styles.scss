@@ -6,6 +6,10 @@ html, body{
 
 body{
     display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     flex-direction: column;
 }
 
@@ -30,7 +34,26 @@ header > h1{
 }
     
 section{
-    flex: 1 0 auto;
+    flex: 1 0 auto;    
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: flex-start;
+     -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.cell{
+    background-color: grey;  
+    opacity: .5;
+    padding: 5px;
+    width: 200px;
+    height: 200px;
+    margin-top: 2em;
+    
+    
 }
 
 footer{
@@ -43,6 +66,6 @@ a{
     text-decoration: none;
 }
 
-#footerItemLeft{
+#footerItemRight{
     float: right;
 }

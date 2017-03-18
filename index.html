@@ -16,56 +16,56 @@
     <header><h1 id="location"></h1></header>
     
     <section>
-        <div id="out"></div>
-        <form> 
-            City:<input type="text" id="cityText">
-            State/Country:<input type="text" id="stateText"> 
-        </form>
-        
-        <div class="buttons">
-            <button onclick="getTypedWeather()">Get Typed weather</button>
-            <button onclick="getWeather()">Show my weather</button>
+        <div class="cell current-weather-info">
+            <table>
+                <tr>
+                    <td> Temp: <span id="currentTemp"></span> </td>
+                </tr>
+                <tr>
+                    <td> Conditions: <span id="conditionTd"></span> </td>
+                </tr>
+                <tr>
+                    <td> Humidity: <span id="humidityTd"></span> </td>
+                </tr>
+            </table>
+            
+            <button onclick="getWeather()">My Weather</button>
         </div>
         
-        <table>
-            <tr>
-                <td> Temp: <span id="currentTemp"></span> </td>
-            </tr>
-            <tr>
-                <td> Conditions: <span id="conditionTd"></span> </td>
-            </tr>
-            <tr>
-                <td> Humidity: <span id="humidityTd"></span> </td>
-            </tr>
-        </table>
         
-        <table>
-            <tr>
-                <td>Future Forcast</td>
-            </tr>
-            <tr>
-                <td>Day: <span id="nextDay"></span> -- <span id="nextDate"></span></td>
-            </tr>
-            <br>
-            <tr>
-                <td> Condition: <span id="nextCondition"></span> </td>
-            </tr>
-            <br>
-            <tr>
-                <td> Temp: <span id="nextTemp"></span> </td>
-            </tr>
-
-            <tr>
-                <td><button onclick="previousDay()">Previous Day</button><button onclick="nextDay()">Next Day</button></td>
-            </tr>
-            <br>
-        </table>
+        <div class="cell">
+            <form> 
+                City:<input type="text" id="cityText">
+                State/Country:<input type="text" id="stateText"> 
+            </form>
+            <button onclick="getTypedWeather()">Get Weather</button>
+        </div>
+        
+        <div class="cell future-weather-info">
+            <table>
+                <tr>
+                    <td> Forecast for <span id="nextDay"></span> -- <span id="nextDate"> </td>
+                </tr>
+                <br>
+                <tr>
+                    <td> Temp: <span id="nextTemp"></span> </td>
+                </tr>
+                <tr>
+                    <td> Condition: <span id="nextCondition"></span> </td>
+                </tr>
+                <tr>
+                    <td> Humidity: <span id="humidityTd"></span> </td>
+                </tr>
+            </table>
+            
+            <button onclick="previousDay()">Previous Day</button><button onclick="nextDay()">Next Day</button>
+        </div>
     </section>
     
     <footer>
         <nav> 
             Developers: <a href="myWebsite">Will Mabrey</a> | <a href="samWebsite">Sam Fessler</a>
-            <span id="footerItemLeft">Developed using <a href="https://developer.yahoo.com/weather/">Yahoo! Weather API</a></span>
+            <span id="footerItemRight">Developed using <a href="https://developer.yahoo.com/weather/">Yahoo! Weather API</a></span>
         </nav>
     </footer>
     
