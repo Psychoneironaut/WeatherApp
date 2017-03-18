@@ -25,6 +25,7 @@ function geoFindMe() {
     navigator.geolocation.getCurrentPosition(success, error);
 }
 
+
 function getTypedWeather(){
     
     var city = $('#cityText').val();
@@ -45,14 +46,16 @@ function getTypedWeather(){
         $('#location').html(info.title);
         
         //icon
- /*       $('conditionIcon').html(setWeatherIcon(info.forecast[0].code));*/
+        var iconString = setWeatherIcon(info.item.forecast[indexVal].code)
+        $('div.conditionIcon').replaceWith(iconString);
         
         $('#conditionTd').html(info.item.condition.text);
         $('#currentTemp').html(info.item.forecast[0].low + (u.toUpperCase()) + ' - ' + info.item.forecast[0].high + (u.toUpperCase()));
         $('#humidityTd').html(" "+info.atmosphere.humidity );
         
         //future info
-  /*      $('nextConditionIcon').html(setWeatherIcon(info.item.forecast[indexVal+1].code));*/
+        var iconString = setWeatherIcon(currentLoc.item.forecast[indexVal+1].code)
+        $('div.nextConditionIcon').replaceWith(iconString);
         
         $('#nextDate').html(currentLoc.item.forecast[indexVal+1].date);
         $('#nextDay').html(currentLoc.item.forecast[indexVal+1].day);
@@ -96,7 +99,8 @@ function getForecast(indexVal){
         var u = 'F';
         
         //set icon
- /*       $('conditionIcon').html(setWeatherIcon(currentLoc.item.forecast[indexVal].code));*/
+        var iconString = setWeatherIcon(currentLoc.item.forecast[indexVal+1].code)
+        $('div.nextConditionIcon').replaceWith(iconString);
                                 
         //set forecast
         $('#nextDate').html(currentLoc.item.forecast[indexVal].date);
@@ -125,11 +129,13 @@ function getWeather() {
         $('#humidityTd').html(" "+info.atmosphere.humidity );
         
         //set icon
- /*       $('conditionIcon').html(setWeatherIcon(info.item.forecast[indexVal].code));*/
+        var iconString = setWeatherIcon(info.item.forecast[indexVal].code)
+        $('div.conditionIcon').replaceWith(iconString);
         
         
         //set forecast
- /*       $('nextConditionIcon').html(setWeatherIcon(currentLoc.item.forecast[indexVal+1].code));*/
+        var iconString = setWeatherIcon(currentLoc.item.forecast[indexVal+1].code)
+        $('div.nextConditionIcon').replaceWith(iconString);
 
         $('#nextDate').html(currentLoc.item.forecast[indexVal+1].date);
         $('#nextDay').html(currentLoc.item.forecast[indexVal+1].day);
@@ -146,112 +152,112 @@ function getWeather() {
     });
 }
 
-//function setWeatherIcon(condid) {
-//  var icon = '';
-//      switch(condid) {
-//        case '0': icon  = 'wi-tornado';
-//          break;
-//        case '1': icon = 'wi-storm-showers';
-//          break;
-//        case '2': icon = 'wi-tornado';
-//          break;
-//        case '3': icon = 'wi-thunderstorm';
-//          break;
-//        case '4': icon = 'wi-thunderstorm';
-//          break;
-//        case '5': icon = 'wi-snow';
-//          break;
-//        case '6': icon = 'wi-rain-mix';
-//          break;
-//        case '7': icon = 'wi-rain-mix';
-//          break;
-//        case '8': icon = 'wi-sprinkle';
-//          break;
-//        case '9': icon = 'wi-sprinkle';
-//          break;
-//        case '10': icon = 'wi-hail';
-//          break;
-//        case '11': icon = 'wi-showers';
-//          break;
-//        case '12': icon = 'wi-showers';
-//          break;
-//        case '13': icon = 'wi-snow';
-//          break;
-//        case '14': icon = 'wi-storm-showers';
-//          break;
-//        case '15': icon = 'wi-snow';
-//          break;
-//        case '16': icon = 'wi-snow';
-//          break;
-//        case '17': icon = 'wi-hail';
-//          break;
-//        case '18': icon = 'wi-hail';
-//          break;
-//        case '19': icon = 'wi-cloudy-gusts';
-//          break;
-//        case '20': icon = 'wi-fog';
-//          break;
-//        case '21': icon = 'wi-fog';
-//          break;
-//        case '22': icon = 'wi-fog';
-//          break;
-//        case '23': icon = 'wi-cloudy-gusts';
-//          break;
-//        case '24': icon = 'wi-cloudy-windy';
-//          break;
-//        case '25': icon = 'wi-thermometer';
-//          break;
-//        case '26': icon = 'wi-cloudy';
-//          break;
-//        case '27': icon = 'wi-night-cloudy';
-//          break;
-//        case '28': icon = 'wi-day-cloudy';
-//          break;
-//        case '29': icon = 'wi-night-cloudy';
-//          break;
-//        case '30': icon = 'wi-day-cloudy';
-//          break;
-//        case '31': icon = 'wi-night-clear';
-//          break;
-//        case '32': icon = 'wi-day-sunny';
-//          break;
-//        case '33': icon = 'wi-night-clear';
-//          break;
-//        case '34': icon = 'wi-day-sunny-overcast';
-//          break;
-//        case '35': icon = 'wi-hail';
-//          break;
-//        case '36': icon = 'wi-day-sunny';
-//          break;
-//        case '37': icon = 'wi-thunderstorm';
-//          break;
-//        case '38': icon = 'wi-thunderstorm';
-//          break;
-//        case '39': icon = 'wi-thunderstorm';
-//          break;
-//        case '40': icon = 'wi-storm-showers';
-//          break;
-//        case '41': icon = 'wi-snow';
-//          break;
-//        case '42': icon = 'wi-snow';
-//          break;
-//        case '43': icon = 'wi-snow';
-//          break;
-//        case '44': icon = 'wi-cloudy';
-//          break;
-//        case '45': icon = 'wi-lightning';
-//          break;
-//        case '46': icon = 'wi-snow';
-//          break;
-//        case '47': icon = 'wi-thunderstorm';
-//          break;
-//        case '3200': icon = 'wi-cloud';
-//          break;
-//        default: icon = 'wi-cloud';
-//          break;
-//      }
-//  
-//      return '<i class="wi '+icon+'"></i>';
-//}
+function setWeatherIcon(condid) {
+  var icon = '';
+      switch(condid) {
+        case '0': icon  = 'wi-tornado';
+          break;
+        case '1': icon = 'wi-tsunami';
+          break;
+        case '2': icon = 'wi-hurricane';
+          break;
+        case '3': icon = 'wi-thunderstorm';
+          break;
+        case '4': icon = 'wi-thunderstorm';
+          break;
+        case '5': icon = 'wi-rain-mix';
+          break;
+        case '6': icon = 'wi-rain-mix';
+          break;
+        case '7': icon = 'wi-rain-mix';
+          break;
+        case '8': icon = 'wi-sprinkle';
+          break;
+        case '9': icon = 'wi-sprinkle';
+          break;
+        case '10': icon = 'wi-hail';
+          break;
+        case '11': icon = 'wi-showers';
+          break;
+        case '12': icon = 'wi-showers';
+          break;
+        case '13': icon = 'wi-snow';
+          break;
+        case '14': icon = 'wi-snow';
+          break;
+        case '15': icon = 'wi-snow-wind';
+          break;
+        case '16': icon = 'wi-snow';
+          break;
+        case '17': icon = 'wi-hail';
+          break;
+        case '18': icon = 'wi-sleet';
+          break;
+        case '19': icon = 'wi-dust';
+          break;
+        case '20': icon = 'wi-fog';
+          break;
+        case '21': icon = 'wi-fog';
+          break;
+        case '22': icon = 'wi-fog';
+          break;
+        case '23': icon = 'wi-cloudy-gusts';
+          break;
+        case '24': icon = 'wi-cloudy-windy';
+          break;
+        case '25': icon = 'wi-thermometer';
+          break;
+        case '26': icon = 'wi-cloudy';
+          break;
+        case '27': icon = 'wi-night-cloudy';
+          break;
+        case '28': icon = 'wi-day-cloudy';
+          break;
+        case '29': icon = 'wi-night-cloudy';
+          break;
+        case '30': icon = 'wi-day-cloudy';
+          break;
+        case '31': icon = 'wi-night-clear';
+          break;
+        case '32': icon = 'wi-day-sunny';
+          break;
+        case '33': icon = 'wi-night-clear';
+          break;
+        case '34': icon = 'wi-day-sunny-overcast';
+          break;
+        case '35': icon = 'wi-hail';
+          break;
+        case '36': icon = 'wi-day-sunny';
+          break;
+        case '37': icon = 'wi-thunderstorm';
+          break;
+        case '38': icon = 'wi-thunderstorm';
+          break;
+        case '39': icon = 'wi-thunderstorm';
+          break;
+        case '40': icon = 'wi-storm-showers';
+          break;
+        case '41': icon = 'wi-snow';
+          break;
+        case '42': icon = 'wi-snow';
+          break;
+        case '43': icon = 'wi-snow';
+          break;
+        case '44': icon = 'wi-cloudy';
+          break;
+        case '45': icon = 'wi-lightning';
+          break;
+        case '46': icon = 'wi-snow';
+          break;
+        case '47': icon = 'wi-thunderstorm';
+          break;
+        case '3200': icon = 'wi-cloud';
+          break;
+        default: icon = 'wi-cloud';
+          break;
+      }
+  
+    return '<i class="wi '+icon+'"></i>';
+}
 
 window.onload = geoFindMe();

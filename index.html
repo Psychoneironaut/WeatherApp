@@ -5,6 +5,11 @@
     <meta charset="utf-8">
     <title>What's the Weather?</title>
     <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link rel="stylesheet" href="css/weather-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/weather-icons-wind.css" type="text/css">
+    <link rel="stylesheet" href="css/weather-icons-wind.min.css" type="text/css">
+    <link rel="stylesheet" href="css/weather-icons.min.css" type="text/css">
+    
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css">
 </head>
 
@@ -32,6 +37,7 @@
             <button onclick="getWeather()">My Weather</button>
         </div>
         
+<<<<<<< HEAD
         
         <div class="cell">
             <form> 
@@ -60,6 +66,41 @@
             
             <button onclick="previousDay()">Previous Day</button><button onclick="nextDay()">Next Day</button>
         </div>
+=======
+        <table>
+            <tr>
+                <td> Temp: <span id="currentTemp"></span> </td>
+            </tr>
+            <tr>
+                <td> Conditions: <div class="inner conditionIcon"></div><span id="conditionTd"></span> </td>
+            </tr>
+            <tr>
+                <td> Humidity: <span id="humidityTd"></span> </td>
+            </tr>
+        </table>
+        
+        <table>
+            <tr>
+                <td>Future Forcast</td>
+            </tr>
+            <tr>
+                <td>Day: <span id="nextDay"></span> -- <span id="nextDate"></span></td>
+            </tr>
+            <br>
+            <tr>
+                <td> Condition: <div class="inner nextConditionIcon"></div><span id="nextCondition"></span> </td>
+            </tr>
+            <br>
+            <tr>
+                <td> Temp: <span id="nextTemp"></span> </td>
+            </tr>
+
+            <tr>
+                <td><button onclick="previousDay()">Previous Day</button><button onclick="nextDay()">Next Day</button></td>
+            </tr>
+            <br>
+        </table>
+>>>>>>> origin/master
     </section>
     
     <footer>
