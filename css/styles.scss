@@ -1,0 +1,48 @@
+html, body{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+header, section, footer {
+  padding: 2em;
+  color: white;
+}
+
+header{
+    opacity: .5;
+    font-family: monospace;
+    justify-content: center;
+    background: black;
+    height: 2.5%;
+    display: flex;
+}
+
+header > h1{
+    text-align: center;
+    color: darkgrey;
+    align-self: center;
+}
+    
+section{
+    flex: 1 0 auto;
+}
+
+footer{
+    font-family: monospace;
+    background: black;
+}
+
+a{
+    color: greenyellow;
+    text-decoration: none;
+}
+
+#footerItemLeft{
+    float: right;
+}

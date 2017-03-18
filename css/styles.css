@@ -1,0 +1,50 @@
+/* line 1, C:/Users/Will/Documents/GitHub/WeatherApp/styles.scss */
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0; }
+
+/* line 7, C:/Users/Will/Documents/GitHub/WeatherApp/styles.scss */
+body {
+  display: flex;
+  flex-direction: column; }
+
+/* line 12, C:/Users/Will/Documents/GitHub/WeatherApp/styles.scss */
+header, section, footer {
+  padding: 2em;
+  color: white; }
+
+/* line 17, C:/Users/Will/Documents/GitHub/WeatherApp/styles.scss */
+header {
+  opacity: .5;
+  font-family: monospace;
+  justify-content: center;
+  background: black;
+  height: 2.5%;
+  display: flex; }
+
+/* line 26, C:/Users/Will/Documents/GitHub/WeatherApp/styles.scss */
+header > h1 {
+  text-align: center;
+  color: darkgrey;
+  align-self: center; }
+
+/* line 32, C:/Users/Will/Documents/GitHub/WeatherApp/styles.scss */
+section {
+  flex: 1 0 auto; }
+
+/* line 36, C:/Users/Will/Documents/GitHub/WeatherApp/styles.scss */
+footer {
+  font-family: monospace;
+  background: black; }
+
+/* line 41, C:/Users/Will/Documents/GitHub/WeatherApp/styles.scss */
+a {
+  color: greenyellow;
+  text-decoration: none; }
+
+/* line 46, C:/Users/Will/Documents/GitHub/WeatherApp/styles.scss */
+#footerItemLeft {
+  float: right; }
+
+/*# sourceMappingURL=styles.css.map */
