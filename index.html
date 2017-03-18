@@ -5,6 +5,11 @@
     <meta charset="utf-8">
     <title>What's the Weather?</title>
     <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link rel="stylesheet" href="css/weather-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/weather-icons-wind.css" type="text/css">
+    <link rel="stylesheet" href="css/weather-icons-wind.min.css" type="text/css">
+    <link rel="stylesheet" href="css/weather-icons.min.css" type="text/css">
+    
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css">
 </head>
 
@@ -32,7 +37,7 @@
                 <td> Temp: <span id="currentTemp"></span> </td>
             </tr>
             <tr>
-                <td> Conditions: <span id="conditionTd"></span> </td>
+                <td> Conditions: <div class="inner conditionIcon"></div><span id="conditionTd"></span> </td>
             </tr>
             <tr>
                 <td> Humidity: <span id="humidityTd"></span> </td>
@@ -48,7 +53,7 @@
             </tr>
             <br>
             <tr>
-                <td> Condition: <span id="nextCondition"></span> </td>
+                <td> Condition: <div class="inner nextConditionIcon"></div><span id="nextCondition"></span> </td>
             </tr>
             <br>
             <tr>
