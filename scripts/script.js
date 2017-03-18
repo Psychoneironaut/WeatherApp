@@ -55,7 +55,7 @@ function getTypedWeather(){
         
         //future info
         var iconString = setWeatherIcon(currentLoc.item.forecast[indexVal+1].code)
-        $('div.nextConditionIcon').replaceWith(iconString);
+        $('div.nextConditionIcon').html(iconString);
         
         $('#nextDate').html(currentLoc.item.forecast[indexVal+1].date);
         $('#nextDay').html(currentLoc.item.forecast[indexVal+1].day);
@@ -99,8 +99,8 @@ function getForecast(indexVal){
         var u = 'F';
         
         //set icon
-        var iconString = setWeatherIcon(currentLoc.item.forecast[indexVal+1].code)
-        $('div.nextConditionIcon').replaceWith(iconString);
+        var iconString = setWeatherIcon(currentLoc.item.forecast[indexVal].code)
+        $('div.nextConditionIcon').html(iconString);
                                 
         //set forecast
         $('#nextDate').html(currentLoc.item.forecast[indexVal].date);
@@ -130,12 +130,12 @@ function getWeather() {
         
         //set icon
         var iconString = setWeatherIcon(info.item.forecast[indexVal].code)
-        $('div.conditionIcon').replaceWith(iconString);
+        $('div.conditionIcon').html(iconString);
         
         
         //set forecast
         var iconString = setWeatherIcon(currentLoc.item.forecast[indexVal+1].code)
-        $('div.nextConditionIcon').replaceWith(iconString);
+        $('div.nextConditionIcon').html(iconString);
 
         $('#nextDate').html(currentLoc.item.forecast[indexVal+1].date);
         $('#nextDay').html(currentLoc.item.forecast[indexVal+1].day);
@@ -205,7 +205,7 @@ function setWeatherIcon(condid) {
           break;
         case '24': icon = 'wi-cloudy-windy';
           break;
-        case '25': icon = 'wi-thermometer';
+        case '25': icon = 'wi-snowflake-cold';
           break;
         case '26': icon = 'wi-cloudy';
           break;
