@@ -27,7 +27,7 @@
                     <td> Temp: <span id="currentTemp"></span> </td>
                 </tr>
                 <tr>
-                    <td> Conditions: <span id="conditionTd"></span> </td>
+                    <td> Conditions: <span id="conditionTd"></span> <div class="inner conditionIcon"></div> </td>
                 </tr>
                 <tr>
                     <td> Humidity: <span id="humidityTd"></span> </td>
@@ -36,8 +36,6 @@
             
             <button onclick="getWeather()">My Weather</button>
         </div>
-        
-<<<<<<< HEAD
         
         <div class="cell">
             <form> 
@@ -49,6 +47,8 @@
         
         <div class="cell future-weather-info">
             <table>
+                <th>
+                </th>
                 <tr>
                     <td> Forecast for <span id="nextDay"></span> -- <span id="nextDate"> </td>
                 </tr>
@@ -57,7 +57,7 @@
                     <td> Temp: <span id="nextTemp"></span> </td>
                 </tr>
                 <tr>
-                    <td> Condition: <span id="nextCondition"></span> </td>
+                    <td> Condition: <span id="nextCondition"></span> <div class="inner nextConditionIcon"></div> </td>
                 </tr>
                 <tr>
                     <td> Humidity: <span id="humidityTd"></span> </td>
@@ -66,41 +66,6 @@
             
             <button onclick="previousDay()">Previous Day</button><button onclick="nextDay()">Next Day</button>
         </div>
-=======
-        <table>
-            <tr>
-                <td> Temp: <span id="currentTemp"></span> </td>
-            </tr>
-            <tr>
-                <td> Conditions: <div class="inner conditionIcon"></div><span id="conditionTd"></span> </td>
-            </tr>
-            <tr>
-                <td> Humidity: <span id="humidityTd"></span> </td>
-            </tr>
-        </table>
-        
-        <table>
-            <tr>
-                <td>Future Forcast</td>
-            </tr>
-            <tr>
-                <td>Day: <span id="nextDay"></span> -- <span id="nextDate"></span></td>
-            </tr>
-            <br>
-            <tr>
-                <td> Condition: <div class="inner nextConditionIcon"></div><span id="nextCondition"></span> </td>
-            </tr>
-            <br>
-            <tr>
-                <td> Temp: <span id="nextTemp"></span> </td>
-            </tr>
-
-            <tr>
-                <td><button onclick="previousDay()">Previous Day</button><button onclick="nextDay()">Next Day</button></td>
-            </tr>
-            <br>
-        </table>
->>>>>>> origin/master
     </section>
     
     <footer>
