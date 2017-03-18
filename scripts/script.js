@@ -45,14 +45,14 @@ function getTypedWeather(){
         $('#location').html(info.title);
         
         //icon
-        $('conditionIcon').html(setWeatherIcon(info.forecast[0].code));
+ /*       $('conditionIcon').html(setWeatherIcon(info.forecast[0].code));*/
         
         $('#conditionTd').html(info.item.condition.text);
         $('#currentTemp').html(info.item.forecast[0].low + (u.toUpperCase()) + ' - ' + info.item.forecast[0].high + (u.toUpperCase()));
         $('#humidityTd').html(" "+info.atmosphere.humidity );
         
         //future info
-        $('nextConditionIcon').html(setWeatherIcon(info.item.forecast[indexVal+1].code));
+  /*      $('nextConditionIcon').html(setWeatherIcon(info.item.forecast[indexVal+1].code));*/
         
         $('#nextDate').html(currentLoc.item.forecast[indexVal+1].date);
         $('#nextDay').html(currentLoc.item.forecast[indexVal+1].day);
@@ -70,10 +70,10 @@ function getTypedWeather(){
 
 function nextDay(){
     if(indexVal === 9){
-        getForcast(indexVal);
+        getForecast(indexVal);
     }else{
         indexVal = indexVal+1;
-        getForcast(indexVal);
+        getForecast(indexVal);
     }
 
 }
@@ -81,24 +81,24 @@ function nextDay(){
 function previousDay(){
     
     if(indexVal === 0){
-        getForcast(indexVal);
+        getForecast(indexVal);
     }
     else{
         indexVal = indexVal -1;
-        getForcast(indexVal);
+        getForecast(indexVal);
     }   
 
 }
 
 
-function getForcast(indexVal){
+function getForecast(indexVal){
     
         var u = 'F';
         
         //set icon
-        $('conditionIcon').html(setWeatherIcon(currentLoc.item.forecast[indexVal].code));
+ /*       $('conditionIcon').html(setWeatherIcon(currentLoc.item.forecast[indexVal].code));*/
                                 
-        //set forcast
+        //set forecast
         $('#nextDate').html(currentLoc.item.forecast[indexVal].date);
         $('#nextDay').html(currentLoc.item.forecast[indexVal].day);
         $('#nextTemp').html(currentLoc.item.forecast[indexVal].low + (u.toUpperCase()) + ' - ' + currentLoc.item.forecast[indexVal].high + (u.toUpperCase()));
@@ -125,12 +125,12 @@ function getWeather() {
         $('#humidityTd').html(" "+info.atmosphere.humidity );
         
         //set icon
-        $('conditionIcon').html(setWeatherIcon(info.item.forecast[indexVal].code));
+ /*       $('conditionIcon').html(setWeatherIcon(info.item.forecast[indexVal].code));*/
         
         
-        //set forcast
-        $('nextConditionIcon').html(setWeatherIcon(currentLoc.item.forecast[indexVal+1].code));
->>>>>>> origin/master:scripts/script.js
+        //set forecast
+ /*       $('nextConditionIcon').html(setWeatherIcon(currentLoc.item.forecast[indexVal+1].code));*/
+
         $('#nextDate').html(currentLoc.item.forecast[indexVal+1].date);
         $('#nextDay').html(currentLoc.item.forecast[indexVal+1].day);
         $('#nextTemp').html(currentLoc.item.forecast[indexVal+1].low + (u.toUpperCase()) + ' - ' + currentLoc.item.forecast[indexVal+1].high + (u.toUpperCase()));
